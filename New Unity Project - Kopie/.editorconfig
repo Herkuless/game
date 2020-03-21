@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0109: Element blendet kein vererbtes Element aus; neues Schlüsselwort erforderlich
+dotnet_diagnostic.CS0109.severity = none
