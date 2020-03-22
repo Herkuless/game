@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 515384600}
   - component: {fileID: 515384599}
   - component: {fileID: 515384598}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: rot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 519420030}
+  distance: 0
   groundcheck: {fileID: 1018906608}
   onground: 0
   speed: 15
@@ -595,13 +596,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495c05703f9c2a969b28463626cd9a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   blau: {fileID: 1311245340}
   rot: {fileID: 515384603}
   camera: {fileID: 519420031}
+  offset: {x: 0, y: 0, z: -1}
+  target: {x: 0, y: 0, z: 0}
   smoothSpeed: 0.125
   zoomFactor: 1
-  offset: {x: 0, y: 0, z: -1}
+  distance: 0
+  winner: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -845,7 +848,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 895987573}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: players
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -877,7 +880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1018906608}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: groundcheck
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -892,7 +895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018906607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0796, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 515384603}
@@ -1188,7 +1191,7 @@ GameObject:
   - component: {fileID: 1311245337}
   - component: {fileID: 1311245341}
   - component: {fileID: 1311245335}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: blau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1208,6 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 519420030}
+  distance: 0
   groundcheck: {fileID: 1794750873}
   onground: 0
   speed: 15
@@ -1411,7 +1415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1794750873}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: groundcheck
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -1426,7 +1430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794750872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0796, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1311245340}

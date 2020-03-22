@@ -12,7 +12,8 @@ public class blau_controller : MonoBehaviour
   float movement;
   float jump;
 
-  public new follow follow;
+  public follow follow;
+  public float distance;
 
   [SerializeField]
   Transform groundcheck;
@@ -33,28 +34,30 @@ public class blau_controller : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate(){
-      if (follow.blau_winning()) Move();
+    void FixedUpdate() {
+      if(follow.getWinner() == "none" || follow.getWinner() == "blau") Move();
+      Animate();
 
-      if(Physics2D.Linecast(transform.position,groundcheck.position,1 << LayerMask.NameToLayer("ground"))) onground = true;
+      if(Physics2D.Linecast(transform.position,groundcheck.position,1 << LayerMask.NameToLayer("ground")) || Physics2D.Linecast(transform.position,groundcheck.position,1 << LayerMask.NameToLayer("rot"))) onground = true;
       else onground = false;
     }
 
     void Move(){
       //walk
       rb2d.velocity = new Vector2(movement*speed,rb2d.velocity.y);
+      //jump
+      if(onground && jump > 0) {
+        rb2d.velocity = new Vector2(rb2d.velocity.x,jump * thrust);
+      }
+    }
+    void Animate(){
       //walk animation
       if(rb2d.velocity.x != 0 && onground) animator.Play("blau_walk");
       //jump animation
       else if(!onground) animator.Play("blau_jump");
       //idle animation
       else animator.Play("blau_idle");
-      //jump
-      if(onground && jump > 0) {
-        rb2d.velocity = new Vector2(rb2d.velocity.x,jump * thrust);
-      }
     }
-
 
     private void OnEnable(){
       input.Enable();
