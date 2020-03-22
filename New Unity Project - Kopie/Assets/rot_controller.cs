@@ -36,7 +36,8 @@ public class rot_controller : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate() {
       if(follow.getWinner() == "none" || follow.getWinner() == "rot") Move();
-      Animate();
+      if(follow.getWinner() == "rot") animator.Play("rot_jump");
+      else Animate();
 
       if(Physics2D.Linecast(transform.position,groundcheck.position,1 << LayerMask.NameToLayer("ground")) || Physics2D.Linecast(transform.position,groundcheck.position,1 << LayerMask.NameToLayer("blau"))) onground = true;
       else onground = false;

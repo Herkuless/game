@@ -36,7 +36,8 @@ public class blau_controller : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate() {
       if(follow.getWinner() == "none" || follow.getWinner() == "blau") Move();
-      Animate();
+      if(follow.getWinner() == "blau") animator.Play("blau_jump");
+      else Animate();
 
       if(Physics2D.Linecast(transform.position,groundcheck.position,1 << LayerMask.NameToLayer("ground")) || Physics2D.Linecast(transform.position,groundcheck.position,1 << LayerMask.NameToLayer("rot"))) onground = true;
       else onground = false;
