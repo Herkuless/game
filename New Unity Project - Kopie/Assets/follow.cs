@@ -11,6 +11,7 @@ public class follow : MonoBehaviour
     public float smoothSpeed = 0.125f;
     public float zoomFactor;
     public float distance,zoom_distance;
+    public float distance_max;
 
     public string winner;
 
@@ -22,7 +23,7 @@ public class follow : MonoBehaviour
     {
         distance = Mathf.Abs(blau.position.y - rot.position.y);
         zoom_distance = Mathf.Lerp(zoom_distance, distance, 0.5f);
-        if(distance < 15) {
+        if(distance < distance_max) {
           target = (blau.position + rot.position)/2;
           winner = "none";
         }
@@ -48,7 +49,7 @@ public class follow : MonoBehaviour
 
 
         transform.position = smoothedPosition;
-        if (distance > 10 && distance < 15) camera.orthographicSize = zoom_distance * zoomFactor;
+        if (distance > 10 && distance < distance_max) camera.orthographicSize = zoom_distance * zoomFactor;
     }
 
     public string getWinner(){
